@@ -370,7 +370,7 @@
 
     .basics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 15px;
       margin-top: 15px;
     }
@@ -461,17 +461,6 @@
       font-weight: 700;
     }
 
-    .svg-diagram-box {
-      background: #fafafa;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 15px 0;
-    }
-
     .math-pill-group {
       display: flex;
       flex-direction: column;
@@ -490,39 +479,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 0.95rem;
     }
 
     .math-pill.purple {
       background: #f5f3ff;
       border-left-color: var(--accent);
       color: #4338ca;
-    }
-
-    .rules-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .rules-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: 0.9rem;
-    }
-
-    .rules-list .bullet {
-      background: var(--accent-light);
-      color: var(--accent);
-      font-weight: bold;
-      border-radius: 50%;
-      min-width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
     }
 
     /* ESTILOS DE EVALUACIÓN / QUIZ */
@@ -615,7 +578,8 @@
   <div class="tabs-container">
     <button class="tab-btn active" onclick="switchTab('simulacion')">🎮 Simulación</button>
     <button class="tab-btn" onclick="switchTab('procedimiento')">📝 Procedimiento Explicado</button>
-    <button class="tab-btn" onclick="switchTab('teoria')">📚 Teoría y Evaluación</button>
+    <button class="tab-btn" onclick="switchTab('teoria')">📚 Teoría</button>
+    <button class="tab-btn" onclick="switchTab('evaluacion')">🎯 Evaluación</button>
   </div>
 
   <!-- PESTAÑA 1: SIMULACIÓN -->
@@ -684,7 +648,7 @@
     </div>
   </div>
 
-  <!-- PESTAÑA 3: TEORÍA Y EVALUACIÓN -->
+  <!-- PESTAÑA 3: TEORÍA -->
   <div id="tab-teoria" class="tab-content">
 
     <!-- Bloque 1: Presentación y Conceptos Básicos -->
@@ -694,46 +658,67 @@
 
       <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.3); margin: 15px 0;">
 
-      <h3 style="font-size: 1.1rem; margin-bottom: 10px;">🌱 Conceptos Clave</h3>
+      <h3 style="font-size: 1.1rem; margin-bottom: 10px;">🌱 Conceptos Clave de la Práctica</h3>
       <div class="basics-grid">
         <div class="basic-card">
-          <h4>⚖️ 1. Primera Condición de Equilibrio</h4>
-          <p>Establece que la sumatoria de fuerzas en los ejes X e Y debe anularse por completo ($\Sigma F_x = 0$ y $\Sigma F_y = 0$).</p>
+          <h4>🎯 1. Argolla Central</h4>
+          <p>Punto de concurrencia donde actúan simultáneamente todas las tensiones provenientes de las poleas.</p>
         </div>
 
         <div class="basic-card">
-          <h4>🎯 2. Argolla Central</h4>
-          <p>Punto de concurrencia donde actúan de forma simultánea todas las tensiones provenientes de las poleas.</p>
+          <h4>🔄 2. Vector Resultante (R)</h4>
+          <p>Combinación geométrica y analítica de todas las fuerzas aplicadas en el sistema.</p>
         </div>
 
         <div class="basic-card">
-          <h4>🔄 3. Vector Resultante ($\vec{R}$)</h4>
-          <p>Combinación geométrica de todas las fuerzas aplicadas en el sistema.</p>
-        </div>
-
-        <div class="basic-card">
-          <h4>🛡️ 4. Vector Equilibrante ($\vec{Eq}$)</h4>
-          <p>Fuerza de igual magnitud y dirección opuesta ($\theta + 180^\circ$) encargada de mantener el sistema estático.</p>
+          <h4>🛡️ 3. Vector Equilibrante (Eq)</h4>
+          <p>Fuerza de igual magnitud y dirección opuesta (θ + 180°) que contrarresta a la resultante para mantener el reposo.</p>
         </div>
       </div>
     </div>
 
-    <!-- Explicación Visual de Fórmulas -->
+    <!-- Sección Detallada: Ley de Inercia y Condiciones de Equilibrio -->
+    <div class="theory-grid-2">
+      <div class="theory-card">
+        <div class="theory-card-header">
+          <div class="theory-icon">🍎</div>
+          <h3>Ley de Inercia (Primera Ley de Newton)</h3>
+        </div>
+        <p>La <strong>ley de inercia</strong> postula que todo cuerpo persevera en su estado de reposo o movimiento rectilíneo uniforme a menos que se vea obligado a cambiar dicho estado por fuerzas impresas sobre él.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-sub);">
+          En la mesa de fuerzas, la argolla se mantiene en reposo absoluto (inercia estática) únicamente cuando el vector resultante de las fuerzas externas aplicadas es nulo ($\Sigma \vec{F} = 0$). Si hay desequilibrio, la inercia del sistema se rompe y la argolla se desplaza hacia un lado.
+        </p>
+      </div>
+
+      <div class="theory-card accent-border">
+        <div class="theory-card-header">
+          <div class="theory-icon">⚖️</div>
+          <h3>Condiciones de Equilibrio</h3>
+        </div>
+        <p>Para que un cuerpo se encuentre en estado de equilibrio mecánico completo, debe satisfacer dos condiciones fundamentales:</p>
+        <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem; color: var(--text-sub); display: flex; flex-direction: column; gap: 6px;">
+          <li><strong>Primera Condición (Traslación):</strong> La suma vectorial de todas las fuerzas concurrentes debe ser cero ($\Sigma \vec{F} = 0$, o bien $\Sigma F_x = 0$ y $\Sigma F_y = 0$).</li>
+          <li><strong>Segunda Condición (Rotación):</strong> La suma de todos los momentos o torques respecto a cualquier punto debe ser cero ($\Sigma \vec{\tau} = 0$). En la mesa de fuerzas, al tratarse de un punto concurrente ideal, los torques son nulos por defecto.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Explicación Visual de Fórmulas con símbolos limpios -->
     <div class="theory-grid-2">
       <div class="theory-card">
         <div class="theory-card-header">
           <div class="theory-icon">📐</div>
-          <h3>1. Descomposición Rectangular</h3>
+          <h3>Descomposición Rectangular</h3>
         </div>
-        <p>Cada vector se desglosa en componentes rectangulares sobre el plano cartesiano:</p>
+        <p>Cada vector de fuerza se desglosa en componentes rectangulares sobre los ejes cartesianos X e Y:</p>
         <div class="math-pill-group">
           <div class="math-pill">
             <span>Componente X</span>
-            <span>$F_x = F \cdot \cos(\theta)$</span>
+            <span>F<sub>x</sub> = F · cos(θ)</span>
           </div>
           <div class="math-pill">
             <span>Componente Y</span>
-            <span>$F_y = F \cdot \sin(\theta)$</span>
+            <span>F<sub>y</sub> = F · sen(θ)</span>
           </div>
         </div>
       </div>
@@ -741,26 +726,29 @@
       <div class="theory-card accent-border">
         <div class="theory-card-header">
           <div class="theory-icon">🧩</div>
-          <h3>2. Condición Estática</h3>
+          <h3>Cálculo del Sistema</h3>
         </div>
-        <p>Para lograr el equilibrio total en la argolla central, se cumple que:</p>
+        <p>Ecuaciones aplicadas para obtener la resultante y su respectiva fuerza equilibrante:</p>
         <div class="math-pill-group">
           <div class="math-pill purple">
-            <span>Magnitud Resultante</span>
-            <span>$R = \sqrt{(\Sigma F_x)^2 + (\Sigma F_y)^2}$</span>
+            <span>Magnitud Resultante (R)</span>
+            <span>R = √(ΣF<sub>x</sub>² + ΣF<sub>y</sub>²)</span>
           </div>
           <div class="math-pill purple">
-            <span>Fuerza Equilibrante</span>
-            <span>$Eq = R$ a $\theta + 180^\circ$</span>
+            <span>Fuerza Equilibrante (Eq)</span>
+            <span>Eq = R a θ + 180°</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- APARTADO DE EVALUACIÓN -->
-    <div class="panel" style="margin-top: 10px;">
+  </div>
+
+  <!-- PESTAÑA 4: EVALUACIÓN -->
+  <div id="tab-evaluacion" class="tab-content">
+    <div class="panel">
       <h2 class="panel-title">Evaluación de Conocimientos (5 Preguntas Aleatorias)</h2>
-      <p style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 15px;">Demuestra tu comprensión sobre la mesa de fuerzas y el equilibrio estático.</p>
+      <p style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 15px;">Demuestra tu comprensión sobre la mesa de fuerzas, la ley de inercia y el equilibrio estático.</p>
 
       <div id="quiz-container"></div>
 
@@ -771,7 +759,6 @@
 
       <div id="quiz-result" class="quiz-result-box"></div>
     </div>
-
   </div>
 
 </div>
@@ -779,14 +766,14 @@
 <script>
   /* BANCO DE PREGUNTAS */
   const questionBank = [
-    { q: "¿Qué establece la primera condición de equilibrio estático?", options: ["La suma de masas es cero", "La sumatoria de fuerzas concurrentes es cero", "La aceleración es constante", "Las fuerzas forman un ángulo recto"], correct: 1 },
+    { q: "¿Qué establece la Primera Condición de Equilibrio Estático?", options: ["La suma de masas es cero", "La sumatoria de fuerzas concurrentes es cero", "La aceleración es constante", "Las fuerzas forman un ángulo recto"], correct: 1 },
+    { q: "¿Qué describe la Ley de Inercia (Primera Ley de Newton) en un sistema estático?", options: ["Un cuerpo mantiene su reposo o MRU si la fuerza neta es cero", "La fuerza es igual a masa por aceleración", "A toda acción corresponde una reacción opuesta", "La energía mecánica se conserva siempre"], correct: 0 },
     { q: "¿Qué relación angular existe entre el vector resultante y el vector equilibrante?", options: ["Tienen la misma dirección", "Son perpendiculares (90°)", "Son opuestos (desfasados 180°)", "Tienen direcciones aleatorias"], correct: 2 },
-    { q: "¿Cuál es la función principal de la argolla central en la mesa de fuerzas?", options: ["Soportar los pesajes de la mesa", "Servir como punto de concurrencia para medir el equilibrio", "Medir directamente la temperatura", "Girar en círculos automáticos"], correct: 1 },
-    { q: "Si un sistema se encuentra perfectamente en equilibrio, ¿cuánto debe valer la magnitud del vector resultante (R)?", options: ["100 N", "Un valor máximo", "Cero (o muy cercano a cero)", "Infinito"], correct: 2 },
-    { q: "¿Cómo se calculan las componentes rectangulares de una fuerza aplicada?", options: ["Mediante las funciones seno y coseno", "Multiplicando por la gravedad", "Sumando todos los ángulos", "Dividiendo entre el número de poleas"], correct: 0 },
-    { q: "Si la sumatoria de fuerzas en el eje X es cero y en el eje Y es cero, ¿qué ocurre con el sistema?", options: ["Se acelera indefinidamente", "Entra en colapso físico", "Se encuentra en equilibrio estático", "Gira sin control"], correct: 2 },
-    { q: "¿Qué unidades se emplean comúnmente para medir la magnitud de las fuerzas en el laboratorio?", options: ["Kilogramos (kg)", "Newtons (N)", "Metros por segundo (m/s)", "Joules (J)"], correct: 1 },
-    { q: "Si una fuerza tiene un ángulo de 0°, ¿hacia dónde apunta vectorialmente?", options: ["Hacia arriba en el eje Y", "Hacia la izquierda", "Hacia abajo", "Hacia la derecha sobre el eje X positivo"], correct: 3 }
+    { q: "¿Cuál es la función principal de la argolla central en la mesa de fuerzas?", options: ["Soportar los pesajes físicos de la mesa", "Servir como punto de concurrencia para medir el equilibrio mecánico", "Medir directamente la temperatura ambiente", "Girar en círculos de manera automática"], correct: 1 },
+    { q: "Si un sistema se encuentra perfectamente en equilibrio, ¿cuánto debe valer la magnitud del vector resultante (R)?", options: ["100 N", "Un valor máximo", "Cero (o cercano a cero)", "Infinito"], correct: 2 },
+    { q: "¿Cómo se calculan las componentes rectangulares de una fuerza aplicada?", options: ["Mediante las funciones trigonométricas seno y coseno", "Multiplicando directamente por la gravedad", "Sumando todos los ángulos del cuadrante", "Dividiendo entre el número total de poleas"], correct: 0 },
+    { q: "Si la sumatoria de fuerzas en el eje X es cero y en el eje Y es cero, ¿qué ocurre con el sistema?", options: ["Se acelera indefinidamente", "Entra en colapso físico", "Se encuentra en equilibrio estático o inercial", "Gira sin control en espiral"], correct: 2 },
+    { q: "¿Qué unidades se emplean en el Sistema Internacional para medir la magnitud de las fuerzas?", options: ["Kilogramos (kg)", "Newtons (N)", "Metros por segundo (m/s)", "Joules (J)"], correct: 1 }
   ];
 
   let currentQuizSelection = [];
@@ -835,15 +822,15 @@
     if (score >= 4) {
       resultBox.style.background = '#d1fae5';
       resultBox.style.color = '#065f46';
-      resultBox.textContent = `¡Excelente trabajo! Tu calificación es ${score} / 5 (${score * 20}%). ¡Dominas el equilibrio de fuerzas!`;
+      resultBox.textContent = `¡Excelente trabajo! Tu calificación es ${score} / 5 (${score * 20}%). ¡Dominas el equilibrio de fuerzas y la inercia!`;
     } else if (score >= 3) {
       resultBox.style.background = '#fef3c7';
       resultBox.style.color = '#b45309';
-      resultBox.textContent = `¡Buen intento! Tu calificación es ${score} / 5 (${score * 20}%). Repasa los conceptos básicos.`;
+      resultBox.textContent = `¡Buen intento! Tu calificación es ${score} / 5 (${score * 20}%). Repasa los conceptos teóricos básicos.`;
     } else {
       resultBox.style.background = '#fee2e2';
       resultBox.style.color = '#991b1b';
-      resultBox.textContent = `Tu calificación es ${score} / 5 (${score * 20}%). Te sugerimos revisar la teoría de la mesa de fuerzas.`;
+      resultBox.textContent = `Tu calificación es ${score} / 5 (${score * 20}%). Te sugerimos revisar con atención la pestaña de Teoría.`;
     }
   }
 
@@ -998,6 +985,9 @@
     } else if (tabName === 'teoria') {
       document.querySelectorAll('.tab-btn')[2].classList.add('active');
       document.getElementById('tab-teoria').classList.add('active');
+    } else if (tabName === 'evaluacion') {
+      document.querySelectorAll('.tab-btn')[3].classList.add('active');
+      document.getElementById('tab-evaluacion').classList.add('active');
     }
     render();
   }
@@ -1029,8 +1019,8 @@
         <h3 style="color: var(--primary-dark); font-size: 1rem; margin-bottom: 10px;">Paso 2: Sumatoria por Ejes</h3>
         <p style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 10px;">Suma algebraica de componentes horizontales y verticales:</p>
         <div style="font-family: monospace; font-size: 0.85rem; background: var(--bg-main); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
-          &Sigma;Fx = <b>${sumX.toFixed(2)} N</b><br><br>
-          &Sigma;Fy = <b>${sumY.toFixed(2)} N</b>
+          &Sigma;F<sub>x</sub> = <b>${sumX.toFixed(2)} N</b><br><br>
+          &Sigma;F<sub>y</sub> = <b>${sumY.toFixed(2)} N</b>
         </div>
       `;
     } else if (activeStep === 3) {
@@ -1038,7 +1028,7 @@
         <h3 style="color: var(--primary-dark); font-size: 1rem; margin-bottom: 10px;">Paso 3: Magnitud Resultante</h3>
         <p style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 10px;">Aplicación del Teorema de Pitágoras con las sumas totales:</p>
         <div style="font-family: monospace; font-size: 0.85rem; background: var(--bg-main); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
-          R = &radic;( (&Sigma;Fx)² + (&Sigma;Fy)² )<br>
+          R = &radic;( (&Sigma;F<sub>x</sub>)² + (&Sigma;F<sub>y</sub>)² )<br>
           R = <b>${res.magnitude.toFixed(2)} N</b><br><br>
           Dirección (&theta;) = <b>${res.angle.toFixed(1)}°</b>
         </div>
